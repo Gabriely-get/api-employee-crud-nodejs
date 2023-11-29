@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
-import DepartamentoController from "./DepartamentoController";
 
 class ProjetoController {
     async index(req: Request, res: Response) {
@@ -48,8 +47,8 @@ class ProjetoController {
         
         const { nome, dataInicio, dataFim, funcionarios } = req.body;
 
-        let date1 = new Date(dataInicio);
-        let date2 = new Date(dataFim);
+        let date1 = new Date(dataInicio).toISOString().split('T')[0];
+        let date2 = new Date(dataFim).toISOString().split('T')[0];
         const funcIdArray = funcionarios.map( (x:any) => {return {id: x} });
 
         const novoProjeto = await prisma.projeto.create({
@@ -76,8 +75,8 @@ class ProjetoController {
         const prisma = new PrismaClient();
         const { nome, dataInicio, dataFim, funcionarios } = req.body;
 
-        let date1 = new Date(dataInicio);
-        let date2 = new Date(dataFim);
+        let date1 = new Date(dataInicio).toISOString().split('T')[0];
+        let date2 = new Date(dataFim).toISOString().split('T')[0];
         
         const funcIdArray = funcionarios.map( (x:any) => {return {id: x} });
 

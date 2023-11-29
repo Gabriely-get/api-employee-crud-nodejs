@@ -44,8 +44,8 @@ model Departamento {
 model Projeto {
  id Int @id @default(autoincrement())
  nome String @db.VarChar(100) @unique
- dataInicio DateTime @db.DateTime()
- dataFim DateTime @db.DateTime()
+ dataInicio String @db.VarChar(11)
+ dataFim String @db.VarChar(11)
 
  funcionarios Funcionario[]
 

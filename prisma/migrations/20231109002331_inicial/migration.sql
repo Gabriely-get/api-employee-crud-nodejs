@@ -29,8 +29,8 @@ CREATE TABLE `departamentos` (
 CREATE TABLE `projetos` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(100) NOT NULL,
-    `dataInicio` DATETIME NOT NULL,
-    `dataFim` DATETIME NOT NULL,
+    `dataInicio` VARCHAR(11) NOT NULL,
+    `dataFim` VARCHAR(11) NOT NULL,
     `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NULL,
 
